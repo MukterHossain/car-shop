@@ -3,7 +3,7 @@ import HomePage from "./component/Home/HomePage";
 
 export default function Home() {
   return (
-    <main className="h-screen">
+    <main className="min-h-screen">
       <HomePage></HomePage>
       </main>
   );
