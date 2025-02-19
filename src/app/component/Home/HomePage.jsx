@@ -3,6 +3,7 @@ import React from 'react';
 import Banner from './Banner';
 import About from './About';
 import Services from './Services';
+import HomeContact from './HomeContact';
 
 const HomePage = () => {
     return (
@@ -10,6 +11,7 @@ const HomePage = () => {
             <Banner></Banner>
             <About></About>
             <Services></Services>
+            <HomeContact></HomeContact>
         </div>
     );
 };
