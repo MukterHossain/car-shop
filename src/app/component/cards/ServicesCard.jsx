@@ -1,15 +1,17 @@
+import Image from "next/image";
 import { FiArrowRight } from "react-icons/fi";
 
 const ServicesCard = ({ item }) => {
-  const { title, description, price } = item;
+  const { title, description, price, img } = item || {};
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div>
-        <img
+        <Image height={200} width={100} src={img} alt={title}></Image>
+        {/* <img
           src="https://source.unsplash.com/random/100x100/?5"
           alt=""
           className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
-        />
+        /> */}
         <h2 className="mb-1 text-xl font-semibold">
           {title}
         </h2>

@@ -3,7 +3,7 @@ import Image from "next/image";
 const HomeContact = () => {
   return (
     <div className="bg-[#151515] rounded-lg px-10 md:px-12 py-16 md:py-24 my-16 md:my-20">
-      <div className="grid grid-cols-1 justify-items-center items-center gap-5 md:grid-cols-2 lg:grid-cols-3  ">
+      <div className="grid grid-cols-1 justify-items-center items-center gap-5 lg:grid-cols-3  ">
         <div className="flex items-center space-x-5">
           <Image
             className=""
