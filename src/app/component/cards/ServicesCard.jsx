@@ -4,22 +4,17 @@ import { FiArrowRight } from "react-icons/fi";
 const ServicesCard = ({ item }) => {
   const { title, description, price, img } = item || {};
   return (
-    <div className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
+    <div className="flex flex-col max-w-lg p-6 space-y-2 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div>
-        <Image height={200} width={100} src={img} alt={title}></Image>
-        {/* <img
-          src="https://source.unsplash.com/random/100x100/?5"
-          alt=""
-          className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500"
-        /> */}
-        <h2 className="mb-1 text-xl font-semibold">
+        <Image className="rounded-lg" height={500} width={500} src={img} alt={title}></Image>
+        <h2 className=" text-2xl font-bold pt-5">
           {title}
         </h2>
       </div>
-      <div className="flex flex-wrap justify-between">
-        <p>Price: ${price}</p>
-        <button aria-label="Bookmark this post" type="button" className="p-2">
-       <FiArrowRight></FiArrowRight>
+      <div className="flex items-center justify-between">
+        <p className="text-xl text-red-600 font-semibold">Price: ${price}</p>
+        <button aria-label="Bookmark this post" type="button" className=" text-red-600">
+       <FiArrowRight size={25}></FiArrowRight>
         </button>
       </div>
     </div>
