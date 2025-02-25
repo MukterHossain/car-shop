@@ -5,6 +5,7 @@ import About from './About';
 import Services from './Services';
 import HomeContact from './HomeContact';
 import PopularProducts from './PopularProducts';
+import MeetOurTeam from './MeetOurTeam';
 
 const HomePage = () => {
     return (
@@ -14,6 +15,7 @@ const HomePage = () => {
             <Services></Services>
             <HomeContact></HomeContact>
             <PopularProducts></PopularProducts>
+            <MeetOurTeam></MeetOurTeam>
         </div>
     );
 };
