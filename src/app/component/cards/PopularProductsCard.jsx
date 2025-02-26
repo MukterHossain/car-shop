@@ -13,6 +13,7 @@ const PopularProductsCard = ({item}) => {
          </div>
          <div className="flex items-center justify-between">
            <p className="text-xl text-red-600 font-semibold">Price: ${price}</p>
+           <p className="text-xl text-red-600 font-semibold">Car Engine Plug: ${price}</p>
            <button aria-label="Bookmark this post" type="button" className=" text-red-600">
           <FiArrowRight size={25}></FiArrowRight>
            </button>
