@@ -52,15 +52,15 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-             {navLink.map((item) => (
-              <Link
-                href={item.path}
-                key={item.path}
-                className="font-semibold hover:text-primary duration-300"
-              >
-                {item.title}
-              </Link>
-            ))}
+              {navLink.map((item) => (
+                <Link
+                  href={item.path}
+                  key={item.path}
+                  className="font-semibold hover:text-primary duration-300"
+                >
+                  {item.title}
+                </Link>
+              ))}
             </ul>
           </div>
           <Link href={"/"}>
@@ -86,10 +86,20 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
+          <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2">
+          <Link
+            href={"login"}
+            className="font-semibold "
+          >
+            Login
+          </Link>
+          </button>
           <div className="flex items-center space-x-3">
             <IoCartOutline size={20}></IoCartOutline>
             <IoSearchOutline size={20}></IoSearchOutline>
-            <a className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-6">appointment</a>
+            <a className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-6">
+              appointment
+            </a>
           </div>
         </div>
       </div>

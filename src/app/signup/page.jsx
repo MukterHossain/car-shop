@@ -1,3 +1,4 @@
+// "use client"
 import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
@@ -12,7 +13,7 @@ const page = () => {
             <div className="grid sm:grid-cols-2 gap-5">
         <div>
           <Image
-            width={500}
+            width={400}
             height={500}
             src={"/assets/images/login/login.svg"}
             alt="img"
@@ -56,7 +57,7 @@ const page = () => {
                 <p className="text-center my-3">Or login with</p>
                 <SocialLogin></SocialLogin>
             </div>
-            <p className="text-center my-3">have account? <Link href={'/login'} className="text-blue-500 font-semibold">Login</Link> </p>
+            <p className="text-center my-3">Already have account? <Link href={'/login'} className="text-blue-500 font-semibold">Login</Link> </p>
           </div>
         </div>
       </div>
