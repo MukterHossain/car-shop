@@ -86,7 +86,14 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-end">
-          <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2">
+          
+          <div className="flex items-center space-x-3">
+            <IoCartOutline size={20}></IoCartOutline>
+            <IoSearchOutline size={20}></IoSearchOutline>
+            <a className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-6">
+              appointment
+            </a>
+            <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2">
           <Link
             href={"login"}
             className="font-semibold "
@@ -94,12 +101,6 @@ const Navbar = () => {
             Login
           </Link>
           </button>
-          <div className="flex items-center space-x-3">
-            <IoCartOutline size={20}></IoCartOutline>
-            <IoSearchOutline size={20}></IoSearchOutline>
-            <a className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-6">
-              appointment
-            </a>
           </div>
         </div>
       </div>

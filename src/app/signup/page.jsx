@@ -1,10 +1,21 @@
-// "use client"
+"use client"
 import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
 
 const page = () => {
+  const handleSignup = async(event)=>{
+    event.preventDefault();
+  const form = event.target;
+  const newUser = {
+    name: form.name.value,
+    email: form.email.value,
+    password: form.password.value
+  }
+  console.log(newUser)
+  }
+  
     return (
         <div>
             <div className="my-6">
@@ -21,18 +32,32 @@ const page = () => {
         </div>
         <div>
           <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-            <form className="card-body">
+            <form onSubmit={handleSignup} className="card-body">
+            <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered"
                   required
                 />
               </div>
+              
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
@@ -40,6 +65,7 @@ const page = () => {
                 <input
                   type="password"
                   placeholder="password"
+                  name="password"
                   className="input input-bordered"
                   required
                 />
