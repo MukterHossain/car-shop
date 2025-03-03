@@ -40,7 +40,7 @@ const HomeContact = () => {
           ></Image>
           <div className="text-white">
             <p className="text-[16px] lg:text-lg">Need a repair? our address</p>
-            <p className="lg:text-2xl text-[21px] font-semibold ">Liza Street, New York</p>
+            <p className="lg:text-2xl text-[21px] font-semibold ">Liza Street, New York </p>
           </div>
         </div>
       </div>

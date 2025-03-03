@@ -17,8 +17,8 @@ const page = () => {
   }
   
     return (
-        <div>
-            <div className="my-6">
+        <div className="my-10">
+            <div className="mb-6">
             <Heading title={'Sign up'}></Heading>
             </div>
             <div className="grid sm:grid-cols-2 gap-5">

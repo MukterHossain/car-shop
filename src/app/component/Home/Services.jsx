@@ -8,7 +8,7 @@ const Services = () => {
     console.log(services)
     
     return (
-        <div className='mt-16 md:mt-24 lg:mt-32'>
+        <div className='mt-16 md:mt-24 lg:mt-32 '>
             <div>
                 <Heading title={'Our Service Area'} subtitle={'Service'} des={'the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. '}></Heading>
             </div>

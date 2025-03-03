@@ -4,7 +4,6 @@ import React from 'react';
 
 
 const About = () => {
-    //to={role === 'admin' ? `/dashboard/profile` : '/dashboard/profile'}
     return (
         <div className='mt-16 md:mt-24'>
             <div className='text-slate-900'>

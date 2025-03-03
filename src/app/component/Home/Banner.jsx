@@ -29,7 +29,7 @@ const Banner = () => {
     ]
   return (
     <div>
-      <div className="carousel w-full mt-3 h-[80vh] ">
+      <div className="carousel w-full mt-3 h-[80vh]">
       {banners.map((banner, i) =>(
         <div key={i} id={`slide${i+1}`}style={{backgroundImage:`linear-gradient(45deg,rgba(7,25,82,0.7), rgba(0,0,0,0.3)), url(/assets/images/banner/${i+1}.jpg)`}}
           className="w-full carousel-item relative bg-top bg-no-repeat bg-cover rounded-xl">
