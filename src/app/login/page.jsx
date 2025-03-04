@@ -21,7 +21,7 @@ const page = () => {
           ></Image>
         </div>
         <div>
-          <div className="card bg-green-50 group hover:bg-green-100 w-full max-w-sm shrink-0 shadow-2xl ">
+          <div className="card bg-green-50 group hover:bg-green-100 transition duration-500 w-full max-w-sm shrink-0 shadow-2xl ">
             <form onSubmit={handleLogin} className="card-body">
               <div className="form-control">
                 <label className="label">
