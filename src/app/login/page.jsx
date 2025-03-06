@@ -5,7 +5,15 @@ import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
 
 const page = () => {
-    const handleLogin = async()=>{}
+    const handleLogin = async(event)=>{
+      event.preventDefault();
+  const form = event.target;
+  const newUser = {
+    email: form.email.value,
+    password: form.password.value
+  }
+  console.log(newUser)
+    }
   return (
     <div className="my-10">
       <div className="mb-6">
@@ -29,6 +37,7 @@ const page = () => {
                 </label>
                 <input
                   type="email"
+                  name="email"
                   placeholder="email"
                   className="input input-bordered group-hover:bg-green-100"
                   required
@@ -40,6 +49,7 @@ const page = () => {
                 </label>
                 <input
                   type="password"
+                  name="password"
                   placeholder="password"
                   className="input input-bordered group-hover:bg-green-100"
                   required
