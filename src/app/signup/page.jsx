@@ -13,7 +13,17 @@ const page = () => {
     email: form.email.value,
     password: form.password.value
   }
-  console.log(newUser)
+  const res = await fetch("http://localhost:3000/signup/api", {
+    method: "POST",
+    body: JSON.stringify(newUser),
+    headers: {
+      "content-type" : "application/json"
+    }
+  })
+  if(res.status === 200){
+    event.target.reset()
+  }
+  console.log(res)
   }
   
     return (
@@ -76,7 +86,7 @@ const page = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Sign up</button>
               </div>
             </form>
             <div>
