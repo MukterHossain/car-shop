@@ -20,6 +20,7 @@ const page = () => {
       "content-type" : "application/json"
     }
   })
+  alert('Sign up successfully')
   if(res.status === 200){
     event.target.reset()
   }
