@@ -3,16 +3,18 @@ import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
+import {signIn} from "next-auth/react";
 
 const page = () => {
     const handleLogin = async(event)=>{
       event.preventDefault();
   const form = event.target;
-  const newUser = {
-    email: form.email.value,
-    password: form.password.value
-  }
-  console.log(newUser)
+  const email= form.email.value
+  const password = form.password.value
+  const res = signIn('credentials', {
+    email, password , redirect: false
+  })
+  console.log(res)
     }
   return (
     <div className="my-10">
