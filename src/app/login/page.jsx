@@ -11,7 +11,7 @@ const page = () => {
   const form = event.target;
   const email= form.email.value
   const password = form.password.value
-  const res = signIn('credentials', {
+  const res =await signIn('credentials', {
     email, password , redirect: false
   })
   console.log(res)
