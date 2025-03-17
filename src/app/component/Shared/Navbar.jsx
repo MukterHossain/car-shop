@@ -1,9 +1,13 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { IoCartOutline, IoSearchOutline } from "react-icons/io5";
 import React from "react";
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const session= useSession()
+  console.log(session)
   const navLink = [
     {
       title: "Home",
@@ -94,12 +98,12 @@ const Navbar = () => {
               appointment
             </a>
             <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2">
-          <Link
+          { !session?.data ? <Link
             href={"login"}
             className="font-semibold "
           >
             Login
-          </Link>
+          </Link> : <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2" onClick={()=>signOut()}>Logout</button>}
           </button>
           </div>
         </div>

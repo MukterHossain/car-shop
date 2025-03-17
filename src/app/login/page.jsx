@@ -4,8 +4,10 @@ import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
 import {signIn} from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 const page = () => {
+  const router = useRouter()
     const handleLogin = async(event)=>{
       event.preventDefault();
   const form = event.target;
@@ -15,6 +17,9 @@ const page = () => {
     email, password , redirect: false
   })
   console.log(res)
+  if(res.status === 200){
+    router.push('/')
+  }
     }
   return (
     <div className="my-10">

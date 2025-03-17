@@ -1,6 +1,8 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcrypt";
+import { connectDB } from "@/app/component/lib/connectDB";
+
 
 const handler =  NextAuth({
 session: {
@@ -18,8 +20,8 @@ providers: [
             if(!email || !password){
                 return null
             }
-            const db=await collectionDB()
-            const currentUser =await db.ollection('users').findOne({email})
+            const db = await connectDB()
+            const currentUser =await db.collection('users').findOne({email})
             if(!currentUser){
                 return null
             }
