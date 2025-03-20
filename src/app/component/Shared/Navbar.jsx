@@ -97,14 +97,13 @@ const Navbar = () => {
             <a className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-6">
               appointment
             </a>
-            <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2">
           { !session?.data ? <Link
             href={"login"}
-            className="font-semibold "
+            className=" btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2"
           >
             Login
           </Link> : <button className="btn hover:bg-green-600 transition duration-500 bg-green-50  hover:text-white px-4 mr-2" onClick={()=>signOut()}>Logout</button>}
-          </button>
+          
           </div>
         </div>
       </div>
