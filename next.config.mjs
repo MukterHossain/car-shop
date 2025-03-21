@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
+      domains: ["avatars.githubusercontent.com"],
         remotePatterns: [
           {
             protocol: 'https',
-            hostname: 'i.ibb.co',
+            hostname: '*',
             port: '',
             pathname: '**',
             search: '',

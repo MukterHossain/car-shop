@@ -37,8 +37,8 @@ const Banner = () => {
               <div className="text-base-100 space-y-6">
                 <h2 className="text-5xl font-bold">{banner.title}</h2>
                 <p className="text-lg font-bold">{banner.description}</p>
-                <button className="btn btn-primary hover:bg-gray-200 hover:text-red-600 mr-4">Discover More</button>
-                <button className="btn btn-primary btn-outline">Latest Project</button>
+                <button className="btn btn-primary hover:bg-gray-200 hover:text-red-600 mr-4 text-white">Discover More</button>
+                <button className="btn btn-primary hover:bg-gray-200 hover:text-red-600 mr-4 text-white btn-outline">Latest Project</button>
               </div>
             </div>
             {/* left-5 right-5 top-1/2 flex -translate-y-1/2   */}
