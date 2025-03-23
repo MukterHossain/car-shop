@@ -1,8 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
 
 const ServicesCard = ({ item }) => {
-  const { title, description, price, img } = item || {};
+  const { title, description, price, img , _id} = item || {};
   return (
     <div className="flex flex-col max-w-lg p-6 space-y-2 overflow-hidden rounded-lg shadow-md dark:bg-gray-50 dark:text-gray-800">
       <div>
@@ -13,9 +14,11 @@ const ServicesCard = ({ item }) => {
       </div>
       <div className="flex items-center justify-between">
         <p className="text-xl text-red-600 font-semibold">Price: ${price}</p>
-        <button aria-label="Bookmark this post" type="button" className=" text-red-600">
-       <FiArrowRight size={25}></FiArrowRight>
+        <Link href={`/services/${_id}`}>
+        <button  type="button" className="  text-[16px] font-semibold bg-red-600  hover:bg-green-600  py-2 px-3 rounded-md duration-300  flex items-center gap-x-1  text-white">
+       <span>View Details</span> <FiArrowRight size={20}></FiArrowRight>
         </button>
+        </Link>
       </div>
     </div>
   );

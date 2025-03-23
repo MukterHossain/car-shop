@@ -1,10 +1,16 @@
 import Heading from '@/app/hooks/Heading';
 import React from 'react';
 import ServicesCard from '../cards/ServicesCard';
-import {services} from '../lib/services'
 import Button from '@/app/hooks/Button';
 
-const Services = () => {
+const getServices = async ()=> {
+    const res = await fetch('http://localhost:3000/services/api/get-all')
+    const services = res.json()
+    return services;
+}
+
+const Services =async () => {
+    const {services} = await getServices()
     console.log(services)
     
     return (
@@ -13,7 +19,7 @@ const Services = () => {
                 <Heading title={'Our Service Area'} subtitle={'Service'} des={'the majority have suffered alteration in some form, by injected humour, or randomised words which dont look even slightly believable. '}></Heading>
             </div>
             <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 justify-between my-10'>
-                {services.map((item, i) => (<ServicesCard key={i} item={item}></ServicesCard>))}
+                {services?.map((item, i) => (<ServicesCard key={i} item={item}></ServicesCard>))}
             </div>
             <div className='flex justify-center mb-6'>
                 <Button title={'More Services'}></Button>
