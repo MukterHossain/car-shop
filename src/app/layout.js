@@ -15,7 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Car Shop",
+  title: {
+    default:'Car Shop',
+    template:"%s | Car Shop"
+  },
   description: "Car repearing and sell shop",
 };
 

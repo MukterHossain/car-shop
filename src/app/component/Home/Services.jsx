@@ -2,12 +2,9 @@ import Heading from '@/app/hooks/Heading';
 import React from 'react';
 import ServicesCard from '../cards/ServicesCard';
 import Button from '@/app/hooks/Button';
+import { getServices } from '@/services/getServices';
 
-const getServices = async ()=> {
-    const res = await fetch('http://localhost:3000/services/api/get-all')
-    const services = res.json()
-    return services;
-}
+
 
 const Services =async () => {
     const {services} = await getServices()
