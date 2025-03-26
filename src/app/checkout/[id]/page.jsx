@@ -36,7 +36,7 @@ const Checkout = ({ params }) => {
   };
   useEffect(() => {
     loadService();
-  }, [params]);
+  }, []);
   return (
     <div className="my-10">
       <div className="relative h-72">
