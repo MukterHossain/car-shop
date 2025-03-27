@@ -33,6 +33,7 @@ const Checkout = ({ params }) => {
       },
     });
     console.log(res);
+    alert('Payment successfully')
   };
   useEffect(() => {
     loadService();

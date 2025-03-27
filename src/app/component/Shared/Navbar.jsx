@@ -12,6 +12,7 @@ const Navbar = () => {
     { title: "Home", path: "/" },
     { title: "About", path: "/about" },
     { title: "Services", path: "/services" },
+    { title: "My Bookings", path: "/my-bookings" },
     { title: "Blog", path: "/blog" },
     { title: "Contacts", path: "/contacts" },
   ];
@@ -77,13 +78,14 @@ const Navbar = () => {
               Appointment
             </a>
 
-            <div>
+            <div >
               {status === "authenticated" && session?.user?.image ? (
                 <Image
                   alt={session?.user?.name || "User"}
                   src={session?.user?.image}
                   height={50}
                   width={50}
+                  className="rounded-full"
                 />
               ) : (
                 <Image
@@ -91,6 +93,7 @@ const Navbar = () => {
                   src="/assets/images/team/1.jpg"
                   height={50}
                   width={50}
+                  className="rounded-full"
                 />
               )}
             </div>
