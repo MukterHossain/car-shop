@@ -13,6 +13,16 @@ const page = () => {
     const data = await res.json();
     setBookings(data?.myBookings);
   };
+  const handleDelete = async (id) =>{
+    const deleted = await fetch(`http://localhost:3000/my-bookings/api/delete-booking/${id}`,{
+      method: 'DELETE'
+    })
+    const res =await deleted.json()
+    if(res.response?.deletedCount > 0){
+      alert('Bookings Data delete successfully')
+      loadData()
+    }
+  }
   useEffect(() => {
     loadData();
   }, [session]);
@@ -63,7 +73,8 @@ const page = () => {
                     >
                       <span>Edit</span>
                     </button>
-                    <button
+                    <button 
+                    onClick={()=> handleDelete(_id)}
                       type="button"
                       className="  text-[16px] font-semibold bg-red-600  hover:bg-green-600  py-1 px-2 rounded-md duration-300  flex items-center gap-x-1  text-white"
                     >
