@@ -1,4 +1,5 @@
 "use client"
+import { Suspense } from "react";
 import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
@@ -7,6 +8,13 @@ import {signIn, useSession} from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 const page = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <Loginpage />
+    </Suspense>
+  );
+};
+const Loginpage = () => {
   const router = useRouter()
   const session = useSession()
   const searchParams = useSearchParams()

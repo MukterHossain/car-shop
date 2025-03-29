@@ -1,10 +1,19 @@
 "use client"
+export const dynamic = "force-dynamic";
+import { Suspense } from "react";
 import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
 
 const page = () => {
+  return (
+    <Suspense fallback={<p>Loading...</p>}>
+      <SignPage />
+    </Suspense>
+  );
+};
+const SignPage = () => {
   const handleSignup = async(event)=>{
     event.preventDefault();
   const form = event.target;
@@ -13,7 +22,7 @@ const page = () => {
     email: form.email.value,
     password: form.password.value
   }
-  const res = await fetch("http://localhost:3000/signup/api", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/signup/api`, {
     method: "POST",
     body: JSON.stringify(newUser),
     headers: {
