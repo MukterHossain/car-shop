@@ -3,18 +3,24 @@ import Image from "next/image";
 import Heading from "../hooks/Heading";
 import SocialLogin from "../hooks/SocialLogin";
 import Link from "next/link";
-import {signIn} from "next-auth/react";
-import { useRouter } from "next/navigation";
+import {signIn, useSession} from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const page = () => {
   const router = useRouter()
+  const session = useSession()
+  const searchParams = useSearchParams()
+  const path=searchParams.get('redirect')
     const handleLogin = async(event)=>{
       event.preventDefault();
   const form = event.target;
   const email= form.email.value
   const password = form.password.value
   const res =await signIn('credentials', {
-    email, password , redirect: false
+    email, 
+    password, 
+    redirect: true,
+    callbackUrl: path ? path : '/'
   })
   console.log(res)
   if(res.status === 200){

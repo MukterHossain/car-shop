@@ -3,65 +3,59 @@ import { getServicesDetails } from "@/services/getServices";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { ToastContainer,toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
-const Checkout = ({ params }) => {
-  const [service, setService] = useState({});
+const page = ({ params }) => {
+  const [booking, setBooking] = useState({});
   const { data } = useSession();
-  const loadService = async () => {
-    const details = await getServicesDetails(params.id);
-    setService(details.service);
+  const loadBooking = async () => {
+    const res = await fetch(
+      `http://localhost:3000/my-bookings/api/booking/${params.id}`
+    );
+    const data = await res.json();
+    console.log(data);
+    setBooking(data.data);
   };
-
-  const { title, description, img, price, facility, _id } = service || {};
-  const handleBooking = async (event) => {
+  const handleUpdate = async (event) => {
     event.preventDefault();
-    const newBooking = {
-      email: data?.user?.email,
-      name: data?.user?.name,
-      address: event.target.address.value,
-      phone: event.target.phone.value,
+    const updateBooking = {
       date: event.target.date.value,
-      serviceTitle: title,
-      serviceId: _id,
-      price: price,
+      phone: event.target.phone.value,
+      address: event.target.address.value,
     };
-    const res = await fetch("http://localhost:3000/checkout/api/new-booking", {
-      method: "POST",
-      body: JSON.stringify(newBooking),
+    const res = await fetch(`http://localhost:3000/my-bookings/api/booking/${params.id}`, {
+      method: "PATCH",
+      body: JSON.stringify(updateBooking),
       headers: {
         "content-type": "application/json",
       },
     });
-    const response = await res?.json()
-    toast.success(response?.message)
+    if(res.status === 200){
+      toast.success('Bookig data updated successfully')
+    } 
     event.target.reset()
   };
   useEffect(() => {
-    loadService();
+    loadBooking();
   }, []);
   return (
     <div className="my-10">
       <div className="relative h-72">
-        {img ? (
-          <Image
-            className="absolute h-72 w-full left-0 top-0 object-cover"
-            src={img}
-            alt="service"
-            width={1280}
-            height={1000}
-          />
-        ) : (
-          <p>Loading image...</p>
-        )}
+        <Image
+          className="absolute h-72 w-full left-0 top-0 object-cover"
+          src={""}
+          alt="update"
+          width={1280}
+          height={500}
+        />
         <div className="absolute h-full left-0 top-0 flex items-center justify-center bg-gradient-to-r  from-black/80 to-white/30 w-full">
           <h2 className="text-white text-3xl font-bold flex justify-center items-center">
-            Checkout {title}
+            Update {booking?.title}
           </h2>
         </div>
       </div>
       <div className="mt-12 bg-slate-300 p-12">
-        <form onSubmit={handleBooking}>
+        <form onSubmit={handleUpdate}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="form-control">
               <label className="label">
@@ -76,10 +70,10 @@ const Checkout = ({ params }) => {
             </div>
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Date {new Date().getDate()}</span>
+                <span className="label-text">Date </span>
               </label>
               <input
-                defaultValue={new Date().toISOString().split("T")[0]}
+                defaultValue={booking?.date}
                 type="date"
                 name="date"
                 className="input input-bordered"
@@ -101,8 +95,7 @@ const Checkout = ({ params }) => {
                 <span className="label-text">Due amount</span>
               </label>
               <input
-                defaultValue={price}
-                readOnly
+                defaultValue={booking?.price}
                 type="text"
                 name="price"
                 className="input input-bordered"
@@ -113,6 +106,7 @@ const Checkout = ({ params }) => {
                 <span className="label-text">Phone</span>
               </label>
               <input
+                defaultValue={booking?.phone}
                 type="text"
                 name="phone"
                 className="input input-bordered"
@@ -123,6 +117,7 @@ const Checkout = ({ params }) => {
                 <span className="label-text">Present Address</span>
               </label>
               <input
+                defaultValue={booking?.address}
                 type="text"
                 name="address"
                 className="input input-bordered"
@@ -142,4 +137,4 @@ const Checkout = ({ params }) => {
   );
 };
 
-export default Checkout;
+export default page;

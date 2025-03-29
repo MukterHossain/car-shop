@@ -1,7 +1,9 @@
 "use client";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 const page = () => {
   const session = useSession();
@@ -14,12 +16,12 @@ const page = () => {
     setBookings(data?.myBookings);
   };
   const handleDelete = async (id) =>{
-    const deleted = await fetch(`http://localhost:3000/my-bookings/api/delete-booking/${id}`,{
+    const deleted = await fetch(`http://localhost:3000/my-bookings/api/booking/${id}`,{
       method: 'DELETE'
     })
     const res =await deleted.json()
     if(res.response?.deletedCount > 0){
-      alert('Bookings Data delete successfully')
+      toast.success("Delete data successfully")
       loadData()
     }
   }
@@ -67,12 +69,12 @@ const page = () => {
                   <td>{date}</td>
                   <td >
                     <div className="flex items-center gap-x-2">
-                    <button
+                    <Link href={`/my-bookings/update/${_id}`}><button
                       type="button"
                       className="  text-[16px] font-semibold bg-blue-600  hover:bg-green-600  py-1 px-2 rounded-md duration-300  flex items-center gap-x-1  text-white"
                     >
                       <span>Edit</span>
-                    </button>
+                    </button></Link>
                     <button 
                     onClick={()=> handleDelete(_id)}
                       type="button"

@@ -3,21 +3,27 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
 import { signIn, useSession } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+// import { useEffect } from "react";
 
 const SocialLogin = () => {
     const router = useRouter()
     const session = useSession()
+     const searchParams = useSearchParams()
+      const path=searchParams.get('redirect')
     const { status } = useSession();  // Destructure status
 
-    useEffect(() => {
-        if (status === "authenticated") {
-            router.push("/");
-        }
-    }, [status, router]);
+    // useEffect(() => {
+    //     if (status === "authenticated") {
+    //         router.push("/");
+    //     }
+    // }, [status, router]);
     const handleSocialLogin = async (provider) =>{
-        const res= await signIn(provider, {redirect:false})
+        const res= await signIn(provider, 
+            {
+                redirect:true,
+                callbackUrl: path ? path : '/'
+            })
         console.log(res)
     }
     // if(session.status === 'authenticated'){
